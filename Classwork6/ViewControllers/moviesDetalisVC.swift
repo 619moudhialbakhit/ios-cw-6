@@ -14,9 +14,9 @@ class moviesDetalisVC: UIViewController {
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieRatingLabel: UILabel!
     @IBOutlet weak var movieRatingView: UIView!
-    @IBOutlet weak var movieRatedLabel: UIView!
+    @IBOutlet weak var movieRatedLabel: UILabel!
     @IBOutlet weak var movieRatedView: UIView!
-    @IBOutlet weak var releaseDateLabel: UIView!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var releaseDatelView: UIView!
     
     @IBOutlet weak var actorIMageView0: UIImageView!
@@ -29,6 +29,7 @@ class moviesDetalisVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setMovieDetails()
+        cinfigureUI()
         // Do any additional setup after loading the view.
     }
     
@@ -39,21 +40,25 @@ class moviesDetalisVC: UIViewController {
         
         //Labels
         movieRatingLabel.text = "\(selectedMovie.rating)"
-        movieRatingLabel.text = selectedMovie.pgRating
-        movieRatingLabel.text = "\(selectedMovie.movieReleaseDate)"
+        movieRatedLabel.text = selectedMovie.pgRating
+        releaseDateLabel.text = "\(selectedMovie.movieReleaseDate)"
         
         //Actors image
         actorIMageView0.image = UIImage(named: selectedMovie.actors[0])
         actorIMageView1.image = UIImage(named: selectedMovie.actors[1])
         actorIMageView2.image = UIImage(named: selectedMovie.actors[2])
-       
+        
         //Actors name
         actorLabel1.text = selectedMovie.actors[0]
         actorLabel2.text = selectedMovie.actors[1]
         actorLabel3.text = selectedMovie.actors[2]
     }
     
-    
+    func cinfigureUI(){
+        movieRatingView.layer.cornerRadius = 12
+         movieRatedView.layer.cornerRadius = 12
+         releaseDatelView.layer.cornerRadius = 12
+    }
     
     
     /*
